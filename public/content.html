@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #chatbot-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #chatbot-log {
+            height: 200px;
+            overflow-y: auto;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+
+        #chatbot-input-area {
+            display: flex;
+        }
+
+        #chatbot-input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px 0 0 3px;
+            font-size: 16px;
+        }
+
+        #chatbot-send-button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #chatbot-send-button:hover {
+            background-color: #0056b3;
+        }
+
+        .user-message {
+            text-align: right;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .chatbot-message {
+            text-align: left;
+            margin-bottom: 5px;
+            color: #007bff;
+            background-color: #e6f7ff;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        #summarize-area {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+            position: relative; /* For absolute positioning of mic button */
+        }
+
+        #text-to-summarize {
+            width: calc(100% - 40px); /* Adjust width for mic button */
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        #start-speech-to-text {
+            position: absolute;
+            top: 18px; /* Adjust vertical position as needed */
+            right: 10px;
+            padding: 8px;
+            background-color: #00c853;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1; /* Ensure it's on top of textarea */
+        }
+
+        #start-speech-to-text.recording {
+            background-color: #d32f2f; /* Red color to indicate recording */
+        }
+
+        #summarize-input-button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #summarize-input-button:hover {
+            background-color: #1e7e34;
+        }
+
+        #summary-output {
+            margin-top: 10px;
+            padding: 8px;
+            border: 1px solid #eee;
+            background-color: #f9f9f9;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        #initiate-summarize-btn {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        #initiate-summarize-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .payment-options-page {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .plan {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+        }
+
+        .plan h4 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .pay-button {
+            padding: 8px 15px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .pay-button:hover {
+            background-color: #4cae4c;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .message.success {
+            color: green;
+        }
+
+        .message.error {
+            color: red;
+        }
+
+        #greeting-container {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, <span id="user-name"></span>!</h2>
+        <div id="greeting-container">
+            </div>
+
+        <button id="initiate-summarize-btn">Summarize</button>
+
+        <div class="payment-options-page">
+            <h3>Unlock Features</h3>
+            <div class="plan">
+                <h4>Summarization Access - ₹15</h4>
+                <p>Pay to unlock the text summarization feature.</p>
+                <button class="pay-button" data-price="15" data-method="Summarization Access" data-action="unlockSummarize">Pay Now</button>
+            </div>
+            <div class="plan">
+                <h4>Basic Subscription - ₹30</h4>
+                <p>Access to basic content and support.</p>
+                <button class="pay-button" data-price="30" data-method="Basic Subscription" data-action="subscribeBasic">Pay Now</button>
+            </div>
+            <div class="plan">
+                <h4>Premium Subscription - ₹50</h4>
+                <p>Full access to all content and priority support.</p>
+                <button class="pay-button" data-price="50" data-method="Premium Subscription" data-action="subscribePremium">Pay Now</button>
+            </div>
+            <div class="plan">
+                <h4>Unlock OpenAI Access - ₹25</h4>
+                <p>Pay to unlock direct interaction with OpenAI.</p>
+                <button class="pay-button" data-price="25" data-method="OpenAI Access" data-action="unlockOpenAI">Pay Now</button>
+            </div>
+            <p id="payment-message" class="message"></p>
+            <button id="logout-btn">Logout</button>
+        </div>
+
+        <div id="summarize-area">
+            <h3>Summarize Text</h3>
+            <textarea id="text-to-summarize" rows="5" cols="50" placeholder="Paste or speak text here..."></textarea>
+            <button id="start-speech-to-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mic">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2M5 10v2M12 19a9 9 0 0 1-9-9M12 19a9 9 0 0 0 9-9"></path>
+                </svg>
+            </button>
+            <button id="summarize-input-button">Summarize</button>
+            <div id="summary-output"></div>
+        </div>
+
+        <div id="chatbot-container">
+            <h3>Chat with us</h3>
+            <div id="chatbot-log">
+            </div>
+            <div id="chatbot-input-area">
+                <input type="text" id="chatbot-input" placeholder="Ask your question...">
+                <button id="chatbot-send-button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="content.js"></script>
+</body>
+</html>

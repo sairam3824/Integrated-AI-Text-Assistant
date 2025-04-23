@@ -1,0 +1,375 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.switch-btn {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    padding: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+    width: auto;
+}
+
+.switch-btn:hover {
+    color: #0056b3;
+}
+
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #e9fae3;
+    color: #28a745;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #fdecea;
+    color: #dc3545;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background-color: #e7f3ff;
+    color: #17a2b8;
+    border: 1px solid #bee5eb;
+}
+
+#payment-section h2 {
+    margin-top: 0;
+}
+
+#order-summary {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+#order-summary h3 {
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#order-items-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#order-items-list li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+#order-items-list li:last-child {
+    border-bottom: none;
+}
+
+.payment-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-options button {
+    width: auto;
+    flex-grow: 1;
+}
+
+/* Styles for the content page */
+#content-area {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: inline-block;
+    /* Adjust as needed */
+    width: auto;
+    /* Adjust as needed */
+}
+
+#logout-btn:hover {
+    background-color: #c82333;
+}
+
+#initiate-summarize-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#initiate-summarize-btn:hover {
+    background-color: #0056b3;
+}
+
+.payment-options-page {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.payment-options-page h3 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.plan {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.plan h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.pay-button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+    background-color: #4cae4c;
+}
+
+#summarize-area {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    position: relative;
+    display: none;
+    /* Initially hidden */
+}
+
+#summarize-area h3 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+#text-to-summarize {
+    width: calc(100% - 40px);
+    /* Adjust for mic button */
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#start-speech-to-text {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    padding: 8px;
+    background-color: #00c853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1;
+}
+
+#start-speech-to-text.recording {
+    background-color: #d32f2f;
+}
+
+#summarize-input-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#summarize-input-button:hover {
+    background-color: #1e7e34;
+}
+
+#summary-output {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+#chatbot-container {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+#chatbot-container h3 {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#chatbot-log {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#chatbot-input-area {
+    display: flex;
+}
+
+#chatbot-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+#chatbot-send-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#chatbot-send-button:hover {
+    background-color: #0056b3;
+}
+
+.user-message {
+    text-align: right;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.chatbot-message {
+    text-align: left;
+    margin-bottom: 8px;
+    color: #007bff;
+    background-color: #e6f7ff;
+    padding: 8px;
+    border-radius: 4px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication and Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="initial-view">
+            <h1>Welcome</h1>
+            <button id="show-login-btn">Login</button>
+            <button id="show-signup-btn">Sign Up</button>
+        </div>
+
+        <div id="login-form" class="hidden">
+            <h2>Login</h2>
+            <form id="login">
+                <div class="input-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p id="login-message" class="message"></p>
+                <button type="button" class="switch-btn" data-target="signup-form">Need an account? Sign Up</button>
+            </form>
+        </div>
+
+        <div id="signup-form" class="hidden">
+            <h2>Sign Up</h2>
+            <form id="signup">
+                <div class="input-group">
+                    <label for="signup-name">Name:</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-confirm-password">Confirm Password:</label>
+                    <input type="password" id="signup-confirm-password" required>
+                </div>
+                <button type="submit" id="signup-btn">Sign Up</button>
+                <p id="signup-message" class="message"></p>
+                <button type="button" class="switch-btn" data-target="login-form">Already have an account? Login</button>
+            </form>
+        </div>
+
+        <div id="payment-section" class="hidden">
+            <h2>Select Payment Method</h2>
+            <div id="order-summary">
+                <h3>Order Summary</h3>
+                <ul id="order-items-list">
+                    <li>Product 1 x 1 - $10</li>
+                    <li>Product 2 x 2 - $10</li>
+                </ul>
+                <p><strong>Total: $<span id="order-total">20</span></strong></p>
+            </div>
+            <div class="payment-options">
+                <button class="payment-btn" data-method="credit_card">Credit Card</button>
+                <button class="payment-btn" data-method="paypal">PayPal</button>
+                <button class="payment-btn" data-method="other">Other Payment</button>
+            </div>
+            <p id="payment-message" class="message"></p>
+            <button type="button" onclick="document.getElementById('initial-view').classList.remove('hidden'); document.getElementById('payment-section').classList.add('hidden'); sessionStorage.removeItem('userId');">Back to Home</button>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
