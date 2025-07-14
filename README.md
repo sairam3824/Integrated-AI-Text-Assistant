@@ -226,8 +226,7 @@ Ensure backward compatibility
 
 📄 License
 This project is licensed under License - see the LICENSE file for details.
-👥 Authors
-Sairam - Initial work - @sairam3824
+
 
 
 📊 Metrics
